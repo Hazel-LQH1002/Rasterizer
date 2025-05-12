@@ -1,0 +1,10 @@
+﻿  Rasterizer.cpp
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(26,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(29,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(32,17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(36,14): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(53,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(54,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(55,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(56,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Rasterizer.vcxproj -> F:\visual studio\Rasterizer\Rasterizer\x64\Debug\Rasterizer.exe
