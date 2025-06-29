@@ -5,7 +5,7 @@
 class Model
 {
 private:
-	std::vector<vec3> vertices;
+	std::vector<Vec3f> vertices;
 	std::vector<std::vector<int>> faces;
 
 public:
@@ -13,8 +13,8 @@ public:
 
 	int nverts() const;
 	int nfaces() const;
-	vec3 vert(int i);
-	vec3 vert(int faceIdx, int vertIdx);
+	Vec3f vert(int i);
+	Vec3f vert(int faceIdx, int vertIdx);
 	std::vector<int> face(int idx);
 };
 #endif // !MODEL_H

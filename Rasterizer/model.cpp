@@ -1,5 +1,8 @@
+#include <iostream>
+#include <string>
 #include <fstream>
 #include <sstream>
+#include <vector>
 #include "model.h"
 
 Model::Model(const std::string filename) {
@@ -14,8 +17,8 @@ Model::Model(const std::string filename) {
         char trash;
         if (!line.compare(0, 2, "v ")) {
             iss >> trash;
-            vec3 v;
-            for (int i : {0, 1, 2}) iss >> v[i];
+            Vec3f v;
+            for (int i : {0, 1, 2}) iss >> v.raw[i];
             vertices.push_back(v);
         }
         else if (!line.compare(0, 2, "f ")) {
@@ -48,12 +51,12 @@ Model::Model(const std::string filename) {
 int Model::nverts() const { return vertices.size(); }
 int Model::nfaces() const { return faces.size(); }
 
-vec3 Model::vert(int i)
+Vec3f Model::vert(int i)
 {
     return vertices[i];
 }
 
-vec3 Model::vert(int faceIdx, int vertIdx)
+Vec3f Model::vert(int faceIdx, int vertIdx)
 {
     return vertices[faces[faceIdx][vertIdx]];
 }
