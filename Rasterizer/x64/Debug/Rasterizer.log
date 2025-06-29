@@ -1,23 +1,43 @@
 ﻿  Rasterizer.cpp
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(33,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(36,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(39,17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(43,14): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(93,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(94,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(95,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(96,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,74): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,74): warning C4244:         with
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,74): warning C4244:         [
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,74): warning C4244:             t=int
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,74): warning C4244:         ]
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,48): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,48): warning C4244:         with
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,48): warning C4244:         [
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,48): warning C4244:             t=int
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(115,48): warning C4244:         ]
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(123,121): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(123,104): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(123,87): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(35,15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(38,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(41,17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(45,14): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,56): warning C4244: 'argument': conversion from 'int' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,56): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,56): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,56): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,56): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,32): warning C4244: 'argument': conversion from 'int' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,32): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,32): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,32): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(79,32): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,21): warning C4244: 'argument': conversion from 't' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,21): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,21): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,21): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,21): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,16): warning C4244: 'argument': conversion from 't' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,16): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,16): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,16): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(107,16): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(124,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(125,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(126,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(127,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,53): warning C4244: 'argument': conversion from 'int' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,53): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,53): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,53): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,53): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,18): warning C4244: 'argument': conversion from 'int' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,18): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,18): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,18): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,18): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(167,91): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(167,74): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(167,57): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
   Rasterizer.vcxproj -> F:\visual studio\Rasterizer\Rasterizer\x64\Debug\Rasterizer.exe
