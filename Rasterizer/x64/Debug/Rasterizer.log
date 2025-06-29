@@ -7,4 +7,14 @@ F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(92,11): warning
 F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(93,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(94,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(95,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,74): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,74): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,74): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,74): warning C4244:             t=int
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,74): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,48): warning C4244: 'argument': conversion from 'double' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,48): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,48): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,48): warning C4244:             t=int
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(113,48): warning C4244:         ]
   Rasterizer.vcxproj -> F:\visual studio\Rasterizer\Rasterizer\x64\Debug\Rasterizer.exe
