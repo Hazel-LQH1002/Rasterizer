@@ -75,26 +75,77 @@ F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(232,11): warnin
 F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(233,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(234,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(235,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,74): warning C4244: 'argument': conversion from 'float' to 't', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,74): warning C4244:         with
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,74): warning C4244:         [
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,74): warning C4244:             t=int
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,74): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,74): warning C4244: 'argument': conversion from 'float' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,74): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,74): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,74): warning C4244:             t=int
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,74): warning C4244:         ]
   (compiling source file 'Rasterizer.cpp')
-      F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,74):
+      F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,74):
       the template instantiation context (the oldest one first) is
           F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(94,6):
           see reference to class template instantiation 'Vec2<int>' being compiled
-          F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,13):
+          F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,13):
           while compiling class template member function 'Vec2<int> Vec2<int>::operator *(float) const'
               F:\visual studio\Rasterizer\Rasterizer\Rasterizer\Rasterizer.cpp(139,19):
               see the first reference to 'Vec2<int>::operator *' in 'triangle'
   
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,67): warning C4244: 'argument': conversion from 'float' to 't', possible loss of data
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,67): warning C4244:         with
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,67): warning C4244:         [
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,67): warning C4244:             t=int
-F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(118,67): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,67): warning C4244: 'argument': conversion from 'float' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,67): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,67): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,67): warning C4244:             t=int
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.h(15,67): warning C4244:         ]
   (compiling source file 'Rasterizer.cpp')
   
+  geometry.cpp
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,66): warning C4244: 'initializing': conversion from 'const t' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,66): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,66): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,66): warning C4244:             t=int
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,66): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,66): warning C4244:         and
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,66): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,66): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,66): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,74): warning C4244: 'initializing': conversion from 'const t' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,74): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,74): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,74): warning C4244:             t=int
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,74): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,74): warning C4244:         and
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,74): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,74): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,74): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,82): warning C4244: 'initializing': conversion from 'const t' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,82): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,82): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,82): warning C4244:             t=int
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,82): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,82): warning C4244:         and
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,82): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,82): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\geometry.cpp(9,82): warning C4244:         ]
+  model.cpp
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\tgaimage.h(58,59): warning C4244: '=': conversion from 'float' to 'unsigned char', possible loss of data
+  (compiling source file 'model.cpp')
+  
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,67): warning C4244: 'argument': conversion from 't' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,67): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,67): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,67): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,67): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,67): warning C4244:         and
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,67): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,67): warning C4244:             t=int
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,67): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,29): warning C4244: 'argument': conversion from 't' to 't', possible loss of data
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,29): warning C4244:         with
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,29): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,29): warning C4244:             t=float
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,29): warning C4244:         ]
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,29): warning C4244:         and
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,29): warning C4244:         [
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,29): warning C4244:             t=int
+F:\visual studio\Rasterizer\Rasterizer\Rasterizer\model.cpp(87,29): warning C4244:         ]
+  Generating Code...
   Rasterizer.vcxproj -> F:\visual studio\Rasterizer\Rasterizer\x64\Debug\Rasterizer.exe
