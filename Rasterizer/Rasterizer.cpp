@@ -13,12 +13,17 @@ const TGAColor white = TGAColor(255, 255, 255, 255);
 const TGAColor red = TGAColor(255, 0, 0, 255);
 const TGAColor green = TGAColor(0, 255, 0, 255);
 const TGAColor blue = TGAColor(0, 0, 255, 255);
-Vec3f light_dir(0.2, 0.15, -1);
+//Vec3f light_dir(0.2, 0.15, -1).normalize();
+//Vec3f light_dir = Vec3f(0.2, 0.15, -1).normalize();
+Vec3f light_dir = Vec3f(0, -1, -1).normalize();
 Vec3f camera(0, 0, 3);
 int width = 800;
 int height = 800;
 int depth = 255;
 Model* model = NULL;
+Vec3f up = Vec3f(0.f, 1.f, 0.f);
+Vec3f center = Vec3f(0.f, 0.f, 1.f);
+Vec3f eye = Vec3f(2.f, 1.f, 3.f);
 
 void line(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color)
 {
@@ -51,7 +56,7 @@ void line(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color)
 
 Matrix viewport(int x, int y, int w, int h)
 {
-	Matrix m = Matrix::Identity(4);
+	Matrix m = Matrix::identity(4);
 
 	m[0][0] = w / 2.f;
 	m[1][1] = h / 2.f;
@@ -89,56 +94,76 @@ int getX(const Vec2i& a, const Vec2i& b, int y)
 	if (b.y == a.y) return a.x;
 	return a.x + (b.x - a.x) * (y - a.y) / (b.y - a.y);
 }
-
-void triangle(Vec3i* pts, Vec2i* uv, float* zbuffer, TGAImage& image, float intensity)
+void triangle(Vec3i* pts, Vec3f* norms, Vec2i* uv, float* ity, float* dist, int* zbuffer, TGAImage& image)
 {
 	Vec3i t0 = pts[0];
 	Vec3i t1 = pts[1];
 	Vec3i t2 = pts[2];
 
+	Vec3f n0 = norms[0];
+	Vec3f n1 = norms[1];
+	Vec3f n2 = norms[2];
+
 	Vec2i uv0 = uv[0];
 	Vec2i uv1 = uv[1];
 	Vec2i uv2 = uv[2];
+
+	float ity0 = ity[0];
+	float ity1 = ity[1];
+	float ity2 = ity[2];
+
+	float dis0 = dist[0];
+	float dis1 = dist[1];
+	float dis2 = dist[2];
 	if (t0.y == t1.y && t0.y == t2.y) return;
 	//分割成两个三角形
-	if (t0.y > t1.y) { std::swap(t0, t1); std::swap(uv0, uv1); }
-	if (t0.y > t2.y) { std::swap(t0, t2); std::swap(uv0, uv2); }
-	if (t1.y > t2.y) { std::swap(t1, t2); std::swap(uv1, uv2); }
+	if (t0.y > t1.y) { std::swap(t0, t1); std::swap(uv0, uv1); std::swap(ity0, ity1);}
+	if (t0.y > t2.y) { std::swap(t0, t2); std::swap(uv0, uv2); std::swap(ity0, ity2);}
+	if (t1.y > t2.y) { std::swap(t1, t2); std::swap(uv1, uv2); std::swap(ity1, ity2);}
+
+
 	//用高度做循环控制
 	int total_height = t2.y - t0.y;
 	for (int i = 0; i < total_height; i++) {
-		//判断属于哪一部分以确定高度
 		bool second_half = i > t1.y - t0.y || t1.y == t0.y;
 		int segment_height = second_half ? t2.y - t1.y : t1.y - t0.y;
-		//计算当前的比例
 		float alpha = (float)i / total_height;
-		float beta = (float)(i - (second_half ? t1.y - t0.y : 0)) / segment_height; // be careful: with above conditions no division by zero here
-		//A表示t0与t2之间的点
-		//B表示t0与t1之间的点
+		float beta = (float)(i - (second_half ? t1.y - t0.y : 0)) / segment_height;
+		//计算A,B两点的坐标
 		Vec3i A = t0 + Vec3f(t2 - t0) * alpha;
 		Vec3i B = second_half ? t1 + Vec3f(t2 - t1) * beta : t0 + Vec3f(t1 - t0) * beta;
+		//计算A,B两点的光照强度
+		float ityA = ity0 + (ity2 - ity0) * alpha;
+		float ityB = second_half ? ity1 + (ity2 - ity1) * beta : ity0 + (ity1 - ity0) * beta;
 		//计算UV
 		Vec2i uvA = uv0 + (uv2 - uv0) * alpha;
 		Vec2i uvB = second_half ? uv1 + (uv2 - uv1) * beta : uv0 + (uv1 - uv0) * beta;
-		//保证B在A的右边
-		if (A.x > B.x) { std::swap(A, B); }// std::swap(uvA, uvB);}
-		//用横坐标作为循环控制，对这一行进行着色
+		//计算UV
+		Vec3f normA = n0 + (n2 - n0) * alpha;
+		Vec3f normB = second_half ? n1 + (n2 - n1) * beta : n0 + (n1 - n0) * beta;
+		//计算距离
+		float disA = dis0 + (dis2 - dis0) * alpha;
+		float disB = second_half ? dis1 + (dis2 - dis1) * beta : dis0 + (dis1 - dis0) * beta;
+		if (A.x > B.x) { std::swap(A, B); std::swap(ityA, ityB); }
+		//x坐标作为循环控制
 		for (int j = A.x; j <= B.x; j++) {
-			//计算当前点在AB之间的比例
-			float phi = B.x == A.x ? 1. : (float)(j - A.x) / (float)(B.x - A.x);
-			//计算出当前点的坐标,A，B保存了z轴信息
-			Vec3i   P = Vec3f(A) + Vec3f(B - A) * phi;
+			float phi = B.x == A.x ? 1. : (float)(j - A.x) / (B.x - A.x);
+			//计算当前需要绘制点P的坐标，光照强度
+			Vec3i    P = Vec3f(A) + Vec3f(B - A) * phi;
+			float ityP = ityA + (ityB - ityA) * phi;
+			ityP = std::min(1.f, std::abs(ityP) + 0.01f);
+			//Vec3f norm = (normA + (normB - normA) * phi);
+			//ityP = std::max(0.f, norm * light_dir);
 			Vec2i uvP = uvA + (uvB - uvA) * phi;
-			if (P.x < width && P.y < height)
-			{
-				//计算当前zbuffer下标=P.x+P.y*width
-				int idx = P.x + P.y * width;
-				//当前点的z大于zbuffer信息，覆盖掉，并更新zbuffer
-				if (zbuffer[idx] < P.z) {
-					zbuffer[idx] = P.z;
-					TGAColor color = model->diffuse(uvP);
-					image.set(P.x, P.y, TGAColor(color.r * intensity, color.g * intensity, color.b * intensity, 255));
-				}
+			float disP = disA + (disB - disA) * phi;
+			int idx = P.x + P.y * width;
+			//边界限制
+			if (P.x >= width || P.y >= height || P.x < 0 || P.y < 0) continue;
+			if (zbuffer[idx] < P.z) {
+				zbuffer[idx] = P.z;
+				TGAColor color = model->diffuse(uvP);
+				image.set(P.x, P.y, TGAColor(color.bgra[2], color.bgra[1], color.bgra[0]) * ityP * (20.f / std::pow(disP, 2.f)));
+				//image.set(P.x, P.y, TGAColor(255,255,255)* ityP);
 			}
 		}
 	}
@@ -187,7 +212,7 @@ void triangleBarycentric(Vec3i* pts, Vec2i* uv, float* zbuffer, TGAImage& image,
 				zbuffer[idx] = P.z;
 				Vec2i uvP = uv0 * bc_screen.x + uv1 * bc_screen.y + uv2 * bc_screen.z;
 				TGAColor color = model->diffuse(uvP);
-				image.set(P.x, P.y, TGAColor(color.r * intensity, color.g * intensity, color.b * intensity, 255));
+				image.set(P.x, P.y, TGAColor(color.bgra[2] * intensity, color.bgra[1] * intensity, color.bgra[0] * intensity, 255));
 			}
 			
 		}
@@ -216,57 +241,71 @@ void drawModelLine()
 
 }
 
-Vec3f world2screen(const Vec3f& v, const Matrix& viewport, const Matrix& projection) 
+Matrix rotateAndTranslateObj(Vec3f& eyes, Vec3f& centre)
 {
-	std::vector<float> vec{ v.x, v.y, v.z, 1.0f };
-	std::vector<float> temp = viewport * projection * vec;
-	if (temp[3] != 0) {
-		temp[0] /= temp[3];
-		temp[1] /= temp[3];
-		temp[2] /= temp[3];
-	}
-	//return Vec3f(int((v.x + 1.) * width / 2. + .5), int((v.y + 1.) * height / 2. + .5), v.z);
+	Vec3f z = (eyes - centre).normalize();
+	Vec3f x = (up ^ z).normalize();
+	Vec3f y = (z ^ x).normalize();
+	Matrix rotation = Matrix::identity(4);
+	Matrix translation = Matrix::identity(4);
+	for (int i = 0; i < 3; i++)
+	{
+		rotation[i][3] = -centre[i];
 
-	Vec3f result(temp);
-	return result;
+		rotation[0][i] = x[i];
+		rotation[1][i] = y[i];
+		rotation[2][i] = z[i];
+	}
+	Matrix res = rotation * translation;
+	return res;
 }
 
 void drawModelTriangleFilled()
 {
 	//add z buffer
-	float* zbuffer = new float[width * height];
+	int* zbuffer = new int[width * height];
 	for (int i = 0; i < width * height; i++)
 	{
-		zbuffer[i] = -std::numeric_limits<float>::max();
+		zbuffer[i] = std::numeric_limits<int>::min();
 	}
-	Matrix Projection = Matrix::Identity(4);
-	Projection[3][2] = -1.f / camera.z;
+
+	Matrix Projection = Matrix::identity(4);
+	Projection[3][2] = -1.f / (eye - center).norm();
+
 	Matrix ViewPort = viewport(width / 8, height / 8, width * 3 / 4, height * 3 / 4);
 
 	model = new Model("african_head.obj");
 	TGAImage image(width, height, TGAImage::RGB);
+
+	Vec3f zAxis = Vec3f(0.f, 0.f, 1.f);
+	Matrix viewRotTran = rotateAndTranslateObj(eye, zAxis);
+
 	for (int i = 0; i < model->nfaces(); i++) {
 		std::vector<int> face = model->face(i);
 		Vec3i screen_coords[3];
 		Vec3f world_coords[3];
+		Vec3f norms[3];
+		float intensity[3];
+		float distance[3];
 		for (int j = 0; j < 3; j++) {
 			Vec3f v = model->vert(face[j]);
-			screen_coords[j] = world2screen(v, ViewPort, Projection);
-			world_coords[j] = v;
+			Matrix m_v = viewRotTran * Matrix(v);
+			screen_coords[j] = Vec3f(ViewPort * Projection * m_v);
+			Vec3f new_v = Vec3f(m_v);
+			//screen_coords[j] = Vec3f(ViewPort * Projection * m_v);
+			//screen_coords[j] = world2screen(v, ViewPort, Projection);
+			world_coords[j] = new_v;
+			norms[j] = model->norm(i, j);
+			intensity[j] = model->norm(i, j) * light_dir;
+			distance[j] = std::pow((std::pow(new_v.x - eye.x, 2.0f) + std::pow(new_v.y - eye.y, 2.0f) + std::pow(new_v.z - eye.z, 2.0f)), 0.5f);
 		}
-		Vec3f n = (world_coords[2] - world_coords[0]) ^ (world_coords[1] - world_coords[0]);
-		n.normalize();
-		float intensity = n * light_dir;
-		//intensity = std::max(0.2f, intensity);
-		// intensity = std::min(std::abs(intensity), 1.f);
-		if (intensity > 0) 
-		{
-			Vec2i uv[3];
-			for (int k = 0; k < 3; k++) {
-				uv[k] = model->uv(i, k);
-			}
-			triangle(screen_coords, uv, zbuffer, image, intensity);
+
+		Vec2i uv[3];
+		for (int k = 0; k < 3; k++) {
+			uv[k] = model->uv(i, k);
 		}
+		triangle(screen_coords, norms, uv, intensity, distance, zbuffer, image);
+
 	}
 	image.flip_vertically();
 	image.write_tga_file("output.tga");
